@@ -10,11 +10,15 @@ import PokeList from "./Pokelist";
 function Pokedex() {
   const [selected, setSelected] = useState("");
   return (
-    <div>
-      <h1>Pokedex</h1>
-      <div>
-        <PokeList selected={selected} setSelected={setSelected} />
-        <Pokedetail selected={selected} />
+    <div className="w-max-[1920px] m-0 p-6 text-center bg-amber-200">
+      <h1 className="text-[64px]">Pokedex</h1>
+      <div className="flex gap-5">
+        <div className="w-[50%]">
+          <PokeList selected={selected} setSelected={setSelected} />
+        </div>
+        <div className="w-[50%]">
+          <Pokedetail selected={selected} />
+        </div>
       </div>
     </div>
   );

@@ -30,7 +30,7 @@ function Pokelist(props: PokelistProps) {
   //console.log(pokemons);
 
   return (
-    <div style={{ display: "flex", flexWrap: "wrap", gap: 16 }}>
+    <div className="flex flex-wrap gap-4">
       {pokemons.map((pokemon) => {
         return (
           <PokemonCard

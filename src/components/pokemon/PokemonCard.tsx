@@ -29,32 +29,15 @@ function PokemonCard(props: PokemonCardProps) {
   }, []);
 
   return (
-    <div
-      style={{
-        width: 200,
-        height: 250,
-        padding: 8,
-        borderRadius: 12,
-        border: "1px solid black",
-        backgroundColor: "#9EDEF9",
-      }}
-    >
+    <div className="w-[200px] h-[250px] p-2 rounded-xl border-black border-solid border-2 bg-[#9EDEF9]">
       <img
-        style={{ width: 200, height: 200, borderRadius: 12 }}
+        className="w-[200px] h-[200px] rounded-xl "
         src={pokemon?.photo}
         alt="imagen pokemon"
       />
-      <div
-        style={{
-          height: 50,
-          display: "flex",
-          gap: 24,
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        <p>{name}</p>
-        <p>{pokemon?.type}</p>
+      <div className="h-[50px] flex gap-6 justify-between">
+        <p className="text-lg font-bold capitalize">{name}</p>
+        <p className="text-lg font-semibold capitalize">{pokemon?.type}</p>
       </div>
     </div>
   );
