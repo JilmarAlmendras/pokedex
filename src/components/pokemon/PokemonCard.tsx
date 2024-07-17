@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 interface PokemonCardProps {
   name: string;
   url: string;
+  onClick: () => void;
 }
 
 interface InfoPokemon {
@@ -11,7 +12,7 @@ interface InfoPokemon {
 }
 
 function PokemonCard(props: PokemonCardProps) {
-  const { name, url } = props;
+  const { name, url, onClick } = props;
   //console.log(url);
   const [pokemon, setPokemon] = useState<InfoPokemon>();
 
@@ -29,7 +30,10 @@ function PokemonCard(props: PokemonCardProps) {
   }, []);
 
   return (
-    <div className="w-[200px] h-[250px] p-2 rounded-xl border-black border-solid border-2 bg-[#9EDEF9]">
+    <div
+      onClick={onClick}
+      className="w-[200px] h-[250px] p-2 rounded-xl border-black border-solid border-2 bg-[#9EDEF9] cursor-pointer"
+    >
       <img
         className="w-[200px] h-[200px] rounded-xl "
         src={pokemon?.photo}

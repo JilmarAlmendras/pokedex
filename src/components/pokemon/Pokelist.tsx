@@ -34,6 +34,9 @@ function Pokelist(props: PokelistProps) {
       {pokemons.map((pokemon) => {
         return (
           <PokemonCard
+            onClick={() => {
+              setSelected(pokemon.url);
+            }}
             name={pokemon.name}
             url={pokemon.url}
             key={pokemon.name}
