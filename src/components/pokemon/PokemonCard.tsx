@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 
 interface PokemonCardProps {
-  name: string;
-  url: string;
+  pokemonItem: { name: string; url: string };
   onClick: () => void;
 }
 
@@ -12,16 +11,13 @@ interface InfoPokemon {
 }
 
 function PokemonCard(props: PokemonCardProps) {
-  const { name, url, onClick } = props;
-  //console.log(url);
+  const { pokemonItem, onClick } = props;
   const [pokemon, setPokemon] = useState<InfoPokemon>();
 
   useEffect(() => {
-    fetch(url)
+    fetch(pokemonItem.url)
       .then((res) => res.json())
       .then((res) => {
-        //console.log(res.sprites.other.dream_world.front_default);
-        //console.log(res.types[0].type.name);
         setPokemon({
           photo: res.sprites.other.dream_world.front_default,
           type: res.types[0].type.name,
@@ -40,7 +36,7 @@ function PokemonCard(props: PokemonCardProps) {
         alt="imagen pokemon"
       />
       <div className="h-[50px] flex gap-6 justify-between">
-        <p className="text-lg font-bold capitalize">{name}</p>
+        <p className="text-lg font-bold capitalize">{pokemonItem.name}</p>
         <p className="text-lg font-semibold capitalize">{pokemon?.type}</p>
       </div>
     </div>

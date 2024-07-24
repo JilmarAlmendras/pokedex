@@ -1,5 +1,3 @@
-// solo hacer fetch si selected.length es mayor a 0
-
 import { useEffect, useState } from "react";
 
 interface PokedetailProps {
@@ -24,20 +22,13 @@ function Pokedetail(props: PokedetailProps) {
     fetch(selected)
       .then((res) => res.json())
       .then((res) => {
-        // console.log(res.sprites.other.dream_world.front_default);
-        // console.log(res.name);
-        // console.log(res.types[0].type.name);
-        // console.log(res.stats[1].base_stat);
-        // console.log(res.stats[2].base_stat);
-        // console.log(res.abilities[1].ability.name)
-
         setPokemon({
           photo: res.sprites.other.dream_world.front_default,
           name: res.name,
           type: res.types[0].type.name,
           attack: res.stats[1].base_stat,
           defense: res.stats[2].base_stat,
-          ability: res.abilities[1].ability.name,
+          ability: res.abilities[0].ability.name,
         });
       });
   }, [selected]);
